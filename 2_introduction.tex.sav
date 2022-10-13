@@ -1,0 +1,265 @@
+% !TEX root = tnnls_relation_gait.tex
+
+\ifx\allfiles\undefined
+    \input{tnnls_prefix}
+\fi
+
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%晓彤（基础知识迁移）%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Depression were the most common mental disorders, which brought great challenge to personal wellbeing and social economy around the world. According to World Health Organization (WHO), people with mental illness are among the main victims of the Covid-19 pandemic, with worldwide cases of depression rising by more than 25\% during the pandemic. Depression is a mental illness that does not directly lead to death, but many depressed people are unable to overcome their psychological barriers and choose to commit suicide. According to statistical surveys, the probability of suicide in depression is around 10-15\%. Given the high prevalence of depression and the risk of suicide, it is becoming increasingly important to find new diagnostic and treatment protocols.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Depression is one of the most common mental disorders~\cite{world2017depression,bhugra2004globalisation,rao2008understanding}, affecting more than 300 million people worldwide\cite{wang2021social}.
+It is characterized by persistent grief, losing interest in things that are usually enjoyed, and the inability to participate in daily activities\cite{peveler2002depression}.
+It will also make patients feel poorly and lose their living ability\cite{singh2009loneliness}.
+Worse still, patients with severe symptoms have thoughts of self-harm or suicide~\cite{eisenberg2007prevalence,bergfeld2018treatment,hemming2019alexithymia}.
+It is estimated that close to 70\% of depressed patients have had suicidal thoughts, and over 50\% have self-harmed\cite{huang2019prevalence}.
+In short, the dangers of depression are staggering.
+
+To mitigate the damage caused by depression, a timely and effective diagnosis is essential. However, there are three main challenges in the clinical diagnosis of depression:
+(1) Lack of valid and accurate objective indicators. Compared with other physiological diseases, there are no objective and specific biochemical examination indexes, physiological data or medical images to diagnose and quantify depression, and clinicians can only make judgments based on the above-mentioned diagnostic criteria and their own working experience, as well as the clinical manifestations of patients, which may lead to biased diagnostic results due to some patients' uncooperative treatment and deliberate concealment of their true state or misdiagnosis.
+(2) Serious shortage of medical resources. At present, there is a serious shortage of medical professionals and medical resources for the diagnosis and treatment of depression. In particular, in low- and middle-income countries, up to 75\% of patients do not receive timely diagnosis and treatment. In addition, face-to-face psychiatric consultations are time-consuming and inefficient, further exacerbating the shortage of resources for psychiatric treatment.
+(3) Deficiencies in social awareness. The low level of awareness of depression and the unconscious resistance or avoidance of mental illnesses can cause early depression to be underestimated or neglected, thus missing the best time for treatment, and may lead to the aggravation of the disease and increase the difficulty and complexity of treatment.
+
+%To alleviate the damage caused by depression, timely and effective diagnosis is essential.
+%However, there are four main challenges in the clinical diagnosis of depression:
+%(1) Lack of valid and accurate objective indicators. In contrast to other physiological disorders, there are no objective and specific biochemical indicators, physiological signal data, or medical imaging to diagnose and quantify depression. Clinicians can only diagnose depression by interviewing patients, and at the same time, some patients do not cooperate with the diagnosis and deliberately conceal their true state, resulting in biased or misdiagnosed findings.
+%
+%
+%
+%However, there are various issues that need to be addressed in the clinical diagnosis of depression.
+%On the one hand, compared to other physical diseases, there are no objective and specific biochemical indicators, physiological signal data, or medical imaging for diagnosing and quantifying depression.
+%The clinician can only make a diagnosis by interviewing the patient and using assessment scales~\cite{faust1988expert}, which depend on the patient's level of cooperation.
+%Nonetheless, social discrimination may make depressed people feel stressed\cite{finch2000perceived,lauber2005recommendations,angermeyer2011biogenetic,pescosolido2013backbone}.
+%When face-to-face communication with a doctor or filling in the questionnaire, they may deliberately conceal some facts and that will lead to misdiagnosis.
+%On the other hand, there is a severe shortage of professional psychiatrists required for the traditional diagnosis of depression worldwide\cite{cheng2022addressing,butryn2017shortage}, which prevents many patients from being diagnosed and treated promptly.
+
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{Taxonomy.jpg}
+\caption{Taxonomy of depression detection based on data type.}
+\label{Taxonomy}
+\end{figure}
+
+%The subjective factors of doctors or patients may cause misjudgements, which have an impact on the assessment of depression risk, and the search for objective methods has become the focus of research.
+%In response to this circumstance, researchers have carried out studies on the evaluation of depression risk from several angles.
+%By comparing the differences in physiological indicators and communication feedback exhibited between depressed and healthy people, they propose a series of machine learning-based methods to assist in depression identification.
+%These methods focus on \emph{brain imaging}\cite{schnyer2017evaluating,sato2015machine,ramasubbu2016accuracy,vai2020predicting,wei2021functional},  \emph{electrophysiological signals}\cite{nilsonne2021eeg,shim2019machine,jiang2016predictability,li2016classification,kim2018automatic}, \emph{Audiovisual data}\cite{ma2016depaudionet,zhou2018visually,miao2021automatic},
+%\emph{text}\cite{trotzek2018utilizing,park2015manifestation,yang2020big}, and \emph{multi-modal data}\cite{yang2017hybrid}.
+
+%为了解决抑郁症临床诊断困难的问题，近年来提出了大量的基于机器学习的抑郁症辅助诊断方法。
+%针对抑郁症的临床诊断难点，近年来，研究人员在比较抑郁症患者与健康人的生理指标和沟通反馈差异的前提下，提出了基于机器学习的方法。
+To address the difficulty of clinical diagnosis of depression, in recent years, researchers have proposed massive machine learning-based approaches based on the premise of comparing physiological indicators and communication feedback differences between depressed and healthy ones~\cite{luo2016big}.
+It not only avoids misdiagnosis or underdiagnosis due to patient non-cooperation to a large extent but also dramatically improves the efficiency of clinical diagnosis, reduces healthcare costs, and alleviates the shortage of healthcare resources.
+Despite the rapid evolution in this field, there is still no systematic study to review and discuss existing progress. To fill this gap, we aim to provide a comprehensive survey for recent ancillary diagnosis of depression (ADD) studies conducted before mid-2022.
+As shown in Fig 1, we focus on the progress of the methods and potential
+research directions in five data contexts:
+
+
+
+%The key to solving these problems is to develop objective and effective methods for detecting depression.
+%%Researchers have proposed machine learning-based methods to identify depression by comparing physiological indicators and communication feedback differences between depressed and healthy ones\cite{luo2016big}.
+%Researchers have proposed machine learning-based methods to achieve it by comparing physiological indicators and communication feedback differences between depressed and healthy ones\cite{luo2016big}.
+%It not only avoids misdiagnosis or underdiagnosis due to patient non-cooperation to a large extent but also dramatically improves the efficiency of clinical diagnosis, reduces healthcare costs, and alleviates the shortage of healthcare resources.
+Despite the rapid evolution in this field, there is still no systematic study to review and discuss existing progress.
+To fill this gap, we aim to provide a comprehensive survey for the recent automatic identification of depression.
+As shown in Fig~\ref{Taxonomy}, we focus on the progress of the methods and potential research directions in five data contexts: \emph{brain imaging}\cite{schnyer2017evaluating,sato2015machine,ramasubbu2016accuracy,vai2020predicting,wei2021functional},  \emph{electrophysiological signals}\cite{nilsonne2021eeg,shim2019machine,jiang2016predictability,li2016classification,kim2018automatic}, \emph{Audiovisual data}\cite{ma2016depaudionet,zhou2018visually,miao2021automatic},
+\emph{text}\cite{trotzek2018utilizing,park2015manifestation,yang2020big}, and \emph{multi-modal data}\cite{yang2017hybrid}.
+These commonly used representation forms of physiological signals are illustrated in Fig~\ref{common signals}.
+
+
+%Not only can they avoid to a greater extent misdiagnosis or missed diagnosis due to patient non-cooperation, but they can also greatly improve the efficiency of clinical diagnosis and reduce health-care costs through computer-assisted diagnosis and treatment. As there is little literature review on this area, we systematically analyse the literature on machine learning in depression-assisted diagnosis. Specifically, we focus on the progress of the methods and potential research directions in five different data contexts: electrophysiological signals, brain imaging, audio and video, text, and multi-modal data.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{raw_signal.jpg}
+\caption{Common physiological signals: subgraphs $a-f$ represent EEG, HRV, EOG, brain imaging, speech signal, facial expression, and gait, respectively.}
+\label{common signals}
+\end{figure}
+
+(1) \emph{Brain imaging:}
+%%Brain function, brain structure, and brain metabolism imaging studies are the three main categories for brain imaging studies of depression.
+%%%However, there are fewer structural and metabolic brain imaging investigations using depressed patients.
+%%However, there are far more studies based on functional brain imaging than on the latter two.
+%Brain imaging studies of depression are mainly divided into brain function, brain structure, and brain metabolism imaging studies. However, there are far more studies based on functional brain imaging of depressed patients,
+%which mainly focus on dysfunction in the frontal lobe\cite{zhang2018multi,yamamura2016association,huang2017altered}, temporal lobe\cite{rolls2018effective}, amygdala\cite{zhu2018abnormal}, and cingulate gyrus\cite{gbyl2019cortical}.
+%Functional magnetic resonance imaging (fMRI) is currently the main tool for studying functional brain imaging.
+Brain imaging refers to the usually non-invasive or minimally invasive techniques that enable imaging the structure or function of the brain. This is achieved by scanning the subject’s brain with various precision instruments.  To some extent, brain imaging can identify different types of depression according to the part of the brain affected. 
+
+%脑成像指的是一种非侵入性或微创技术，能够成像大脑的结构或功能。这是通过用各种精密仪器扫描受试者的大脑来实现的。
+%With the information compiled by numerous brain scans, researchers can find common themes in brain structure, brain function and mental health symptoms among people with depression.
+%The obtained signals provide identifying information about the structures and physiological activities of the brain lending answers to questions about structural integrity.
+%Depression research based on brain imaging data is mainly divided into brain structure, brain function and brain metabolic imaging. %常用的工具分别是
+ 
+ 
+ 
+
+%This is achieved either by directly measuring the currents and magnetic fields produced by neural activity, by injecting radioisotope agents to outline regions through emitted radiation or by measuring tissue-specific responses to an externally applied energy source such as a magnetic field. The obtained signals provide identifying information about the structures and physiological activities of the brain lending answers to questions about structural integrity, relevant particularly in clinical applications, as well as relating brain function to human cognition and behavior.
+
+%Depression research based on brain imaging data is mainly
+%divided into brain structure, brain function and brain metabolic
+%imaging. Brain function imaging studies of depression mainly
+%include Functional Nearinfrared Spectroscopy (fNIRS), nuclear Magnetic Resonance Imaging (MRI), etc. Brain metabolic
+%imaging studies to explore depression mainly include Positron
+%Emission computed Tomography (
+
+
+
+(2) \emph{Electrophysiological signals:}
+%电生理信号是由单个细胞的膜电位变化引起的，他们通常由置于体表的金属电极来记录。
+Electrophysiological signals are caused by changes in the membrane potential of individual cells, which are usually recorded by metal electrodes placed on the body surface. The common electrophysiological signals that are of clinical interest are electroencephalography (EEG, tracing brain tissue activities), electrocardiography (ECG, recordings of the cardiac movement), and electromyography (EMG, examining the behavior of muscle fibers or cells). They have been used extensively to ADD because of their non-invasive detection and ease of use.
+%Electrophysiological signals, which mainly include EEG,
+%ECG, EOG, galvanic skin response, and body temperature,
+%have been used extensively to diagnose depression because of
+%their non-invasive detection and ease of use
+% These signals arise from the membrane potential changes of electrically active cells, e.g., neurons in the brain controlling bodily functions, muscle cells enabling motion, pacemaker cells governing heart rhythm, and pancreatic cells responsible for insulin release. The common electrophysiological signals that are of clinical interest are electrocardiography (ECG, recordings of the cardiac movement), electroencephalography (EEG, tracing brain tissue activities), and electromyography (EMG, examining the behavior of muscle fibers or cells).
+
+%Apart from using fMRI to assist in diagnosing depression, electrophysiological signals, especially electroencephalography(EEG), electrocardiography(ECG), electrodermal (EOG), and body temperature, have also received extensive attention\cite{trambaiolli2020resting}.
+%EEG signals are most commonly used among them because of their great temporal resolution and sensitivity to minute changes in brain activity \cite{zeng2018eeg}.
+%EEG-based methods for depression identification currently mostly use feature extraction with traditional classifier geometry, and some studies have also focused on convolutional neural networks.
+
+
+%Electrophysiological signals to assist in the diagnosis of depression has also been heavily researched, mainly including electroencephalography, electrocardiography, electrodermal, gastric, ophthalmic, and body temperature. Among these, EEG signals are used most frequently due to their high temporal resolution and sensitivity to slight changes in brain activity [34]. EEG-based methods for depression identification currently mostly use feature extraction with traditional classifier geometry, and some studies have also focused on convolutional neural networks.
+
+
+(3) \emph{Audiovisual data:}
+%音视频数据，其数据形式主要包括语音、视频、人脸等，他们通过录像和录音设备来捕捉。基于音视频的抑郁症识别是研究人员最先提出的识别方法，也是目前研究最为广泛的识别方法，其优点在于采集成本低但能够取得较好的识别效果。
+
+
+%Many researchers have used facial expression, speech, and gait to diagnose depression because depressed patients always exhibit abnormal behavior, such as sluggish facial expressions\cite{dai2012more}, frequent avoidance of eye contact, and speaking in short sentences with a flat tone\cite{kraepelin1921manic}. The model is more accurate based on the ease of obtaining data.
+
+(4) \emph{Text:} A decline in interest and communication with people is one of the clinical indicators of depression\cite{thomee2011mobile}.
+It means that depression patient will share more intimate thoughts on social media.
+As a result, social media sites frequently record details on the their condition.
+
+
+(5) \emph{Mixed-modal data:}  In addition to the use of single physiological or behavioural data to assist in the diagnosis of depression, there have been many studies that have sought to employ multi-modal data for diagnosis  \cite{lalousis2021heterogeneity,meng2021bidirectional,toenders2022predicting}.
+Multi-modal data have more features than unimodal data, which can give a more complete picture of the symptomatology of depressed patients.
+
+In this paper, we review the current state of research on machine learning to assist in the diagnosis of depression regarding the five types mentioned above of data, with a focus on the progress of the use of machine learning techniques in different data contexts and potential research directions.
+The main contributions of this study are threefold.
+
+(1) To fill the gap in research on the automatic identification of depression, we review methods for aiding the diagnosis of depression and provide a systematic survey of different modalities of data for the diagnosis of depression.
+
+(2) We summarize and compare the performance of accepted methodologies for researchers and physicians to use according to their practical needs.
+
+(3) We summarize and analyze the advantages and disadvantages of different data types for depression diagnosis and provide insights on promising research directions in this field.
+
+
+
+
+
+
+
+The rest of this survey will be organized as follows:
+Section 2 presents a summary of standard approaches to diagnosing clinical depression and abnormal changes in the physiology and behavior of depressed patients and introduces widely-used questionnaires, datasets, and metrics.
+Section 3-7 provides an in-depth analysis of machine learning-based approaches to ADDs from the perspective of different data types.
+Section 8 provides insights into promising research directions. We conclude the survey in Section 9.
+
+
+
+%
+%Human gait, as a unique biometrics, receives increasing attention since it can be obtained at a long distance in a non-intrusive way~\cite{bouchrika2011using,gu2020cross,wu2016comprehensive,sepas2021deep}.
+%%
+%Gait recognition aims to recognize the identity of people according to the walking patterns and the existing methods for gait recognition can be roughly divided into two categories, \ie, \emph{model-based} and \emph{appearance-based}.
+%%
+%The model-based methods~\cite{an2020performance,liao2020model,li2020end} try to extract the human body structures from the videos which have the advantage of being robust to clothing and carrying conditions.
+%%
+%However, in the low-resolution conditions, it is difficult to estimate the body parameters accurately which has a large adverse effect on the model-based methods.
+%%
+%In contrast, the appearance-based methods~\cite{zhang2019learning,lin2020gait,chao2019gaitset} try to learn gait features from the videos \emph{without explicitly modeling the human body structures}.
+%%
+%The silhouettes, which are simple yet effective, are usually taken as the input for the appearance-based methods.
+%% to adapt to the low-resolution conditions.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{figure}[tbp]
+%	\centering
+%	\subfloat[ID=112]{
+%		\label{fig_hard_case1}\includegraphics[width=1.0\linewidth]{figures/hard_cases/png_id_112_type_bg-02_view_018_visualize_fquality_bin08.pdf}
+%	}
+%	\\
+%	\vspace{-2mm}
+%	\subfloat[ID=112]{
+%		\label{fig_hard_case2}\includegraphics[width=1.0\linewidth]{figures/hard_cases/pdf_id_112_type_cl-02_view_018_visualize_fquality_bin00.pdf}
+%	}
+%	\\
+%	\vspace{-2mm}
+%	\subfloat[ID=123]{
+%		\label{fig_hard_case3}\includegraphics[width=1.0\linewidth]{figures/hard_cases/pdf_id_123_type_cl-02_view_018_visualize_fquality_bin15.pdf}
+%	}
+%	\caption{
+%    Illustration of the hard cases for silhouette-based gait recognition, (a)(b)-the same subject with a low similarity score, (b)(c)-different subjects with a high similarity score.
+%    %
+%    Due to the lack of interpretability, it is difficult to analyze the reasons that lead to these cases.
+%	}
+%	\label{fig_hard_cases}
+%\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%In previous literature, the silhouette-based methods~\cite{fan2020gaitpart,hou2020gait,hou2021setres} hold state-of-the-art performance for gait recognition, however, all of these methods are faced with a key challenge, \ie, the lack of interpretability.
+%%
+%For example, it is not clear which silhouette in a gait sequence and which part in the human body are relatively more important for the final recognition.
+%%
+%In the real-world applications, the cases shown in Fig.~\ref{fig_hard_cases} occur frequently:
+%%
+%(1) two sequences belonging to different subjects are assigned a high similarity score.
+%%
+%(2) two sequences belonging to the same subject are assigned a low similarity score.
+%%
+%Due to the lack of interpretability, it is hard to analyze the reasons that lead to these cases.
+%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%In this work, we focus on the interpretability of silhouette-based gait recognition.
+%%
+%The interpretability is a broad topic which can be addressed from many different aspects.
+%%
+%To the best of our knowledge, the previous works which deal with the interpretability in the context of deep learning mostly try to analyze the role of each neuron~\cite{zeiler2014visualizing,zhou2015cnnlocalization} and discover the discriminative area in the input~\cite{selvaraju2017grad}.
+%%
+%Differently, in this work, we try to \emph{find out the relative importance of each silhouette and each part for silhouette-based gait recognition}.
+%%
+%To this end, we propose a Gait Quality Aware Network (denoted as GQAN) which explicitly assesses the quality of each silhouette and each part via two blocks, \ie, Frame Quality Block (FQBlock) and Part Quality Block (PQBlock).
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Specifically, the silhouettes in a gait sequence are complementary to each other and contain the walking pattern of a subject.
+%%
+%Due to the occlusion, geometry distortion, segmentation errors and so on, the quality of each silhouette cannot be guaranteed~\cite{yu2006framework,takemura2018multi}, which is likely to hurt the feature learning from the silhouettes.
+%%
+%In GQAN, the silhouettes of a gait sequence are regarded as an unordered set.
+%%
+%FQBlock is proposed to incorporate the frame quality of each silhouette for set-based feature learning which can learn more discriminative features and \emph{enhance the interpretability}.
+%%
+%Specifically, FQBlock works in a squeeze-and-excitation style~\cite{hu2018squeeze} to recalibrate the features for each silhouette and the scores of all channels are added as the frame quality indicator for the corresponding silhouette.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Besides, learning part representations by horizontally slicing the features has been widely used for gait recognition~\cite{chao2019gaitset,fan2020gaitpart,hou2020gait,hou2021setres}.
+%%
+%However, all part representations are treated equally when computing the distance of two gait sequences, which is not optimal for gait recognition.
+%%
+%For example, in the cases of changing coats or jackets, the features of head and legs are usually more important than those of upper body to match probe and gallery.
+%%
+%PQBlock addresses the issue by learning an adaptive weight for each part.
+%%
+%It operates on the set-level part representations and predicts a score for each part which is taken to compute the weighted distance between probe and gallery.
+%%
+%Particularly, we propose a loss function named Part Quality Loss (PQLoss) to train PQBlock with only the sequence-level identity annotations.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%In summary, the main contributions of this work lie in three folds:
+%%
+%(1) We propose a GQAN towards the interpretability of silhouette-based gait recognition by explicitly assessing the quality of each silhouette and each part.
+%%
+%GQAN can \emph{automatically} sort the silhouettes and parts according to the relative importance.
+%%
+%(2) We propose a PQLoss which enables GQAN to be trained in an end-to-end manner with only the sequence-level identity annotations.
+%%
+%(3) GQAN achieves very competitive performance on CASIA-B and OUMVLP under all walking conditions.
+
+\ifx\allfiles\undefined
+\input{tnnls_suffix}
+\fi

@@ -1,0 +1,20 @@
+## General
+/*.pdf
+*.log
+*.blg
+*.aux
+*.synctex.gz
+*.bak
+*.bbl
+*.fdb_latexmk
+*.fls
+*.loc
+*.brf
+*.soc
+*.out
+*.xml
+sample*
+*.pkl
+*.pyc
+*.synctex
+
