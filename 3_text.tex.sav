@@ -1,0 +1,315 @@
+% !TEX root = tnnls_relation_gait.tex
+
+\ifx\allfiles\undefined
+    \input{tnnls_prefix}
+\fi
+%\section{Depression Recognition}
+\section{Depression recognition method based on gait}
+\subsection{Gait}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+
+Speech is a non-invasive signal that is low-cost and easily accessible.
+The study of speech-based depression recognition began with the examination of clinical aspects of depressed individuals' speech.
+Clinical observations have revealed that there are phonetic differences in speech between healthy and depressed populations.
+These differences can be seen in the fact that depressed people typically speak more smoothly and monotonously, whereas healthy people speak more rhythmically, with less pauses and fewer times than depressed people\cite{pampouchidou2017facial,montgomery1979new}.
+Furthermore, the researchers  designed characteristics based on the variations between the two groups. These characteristics are objective in nature and are able to discriminate between populations that are healthy and those that are depressed.
+But with the rapid advancement of deep learning techniques in recent years, speech-based depression recognition has transitioned from hand-crafted acoustic features to a deep learning-based framework.
+%
+%Previous work for depression
+%analysis can be broadly categorized into handcrafted feature based
+%methods and deep learning feature based methods according to
+%their adopted frameworks.
+
+
+%基于语音的抑郁症识别研究开始于人们对抑郁症患者语音临床特性的观察。由临床观察得知，健康人群和抑郁人群在说话时，语音上存在差异。通常，抑郁患者在语音声学特征方面存在音调较低、语速较慢、
+%语调单一和停顿较长等极为明显的特点，可见语音可以作为抑郁的检测指标
+
+%从先前的研究来看，基于语音的抑郁症识别研究在朝着语音特征和机器学习相结合的方向发展。
+
+
+%贝克的《抑郁症》 [21] 一书中也指出：抑郁症患者讲话较少且声音较低.
+%临床医学发现，抑郁会导致认知、精神运动速度和言语交际行为受
+%损 [12] ，从而影响言语产生，言语活动能力的降低，韵律不规则和言语单调性 [12][13] ，
+%主要表现为言语活动少、讲话更安静、音量和音调变化少、韵律低。为此，众多研
+%究表明，与正常群体比较，抑郁患者在语音声学特征方面存在音调较低、语速较慢、
+%语调单一和停顿较长等极为明显的特点，可见语音可以作为抑郁的检测指标 [14] 。
+
+
+%语音以其非侵入，低成本，易获得等特点，使得基于语音信号的抑郁识别建模
+%研究仍然成为学术界的研究热点。基于语音信号的抑郁识别主要分为以下 3 个方面：
+%所以，当前基于语音信号通过机器学习的方法对抑郁进行客观、自动化的检测已经成为一种十分重要的方法
+
+
+
+
+%韵律、频谱、声门特征
+%支持向量机 (SVM) 和高斯混合模型 (GMM) 是用于检测语音抑郁症的最流行的分类技术
+
+
+
+%具体而言，SDR经历了从早期传统的基于手工特征的方法到深度学习架构的应用，从仅使用声学特征到目前的多特征应用的转变
+
+
+\subsubsection{Speech depression recognition based on traditional machine learning}
+%因此，在SDR研究的早期阶段，主要工作是学习与抑郁相关的声学特征，探索特征集以获得更好的性能[22,23]。同时，SDR中使用了传统的机器学习算法，如支持向量机(SVM)[24 27]、隐马尔可夫模型[28]、高斯混合模型(GMM)[27,29,30]、K均值[31,32]、Boosting LogisticRegression[33 35]、多层感知器[30,35]等。
+
+
+%迄今为止，基于语音的自动抑郁分析主要是使用传统的机器学习方法，结合手工制作的特征工程[1]，[20]进行的。关于手工制作的特征工程，主要工作是学习与抑郁相关的声学特征，探索特征集以获得更好的性能。同时，研究人员也使用传统的机器学习算法，如支持向量机，作为分类器，用于抑郁症识别。
+So far, automatic speech-based depression analysis has primarily relied on classic machine learning methods supplemented with hand-crafted feature, as shown in Fig.\ref{Speech01}.
+In terms of hand-crafted feature engineering, the major work is to learn acoustic features related to depression and experiment with feature sets to improve performance.
+Researchers have also employed classic machine learning algorithms, such as support vector machines, as classifiers for depression diagnosis.
+\begin{figure}
+\centering
+\includegraphics[height=2.5cm,width=9cm]{Speech1.jpg}
+\caption{Flow diagram of speech depression recognition based on traditional machine learning.}
+\label{Speech01}
+\end{figure}
+
+
+%研究人员发现，抑郁的受试者更有可能表现出较低的基本频率动态范围，较慢的语速，稍短的说话时间，以及相对单调的传递[1]。一些作品具有杠杆式的基于知识的特征，专门设计来捕捉这些特征或相关的效果。
+%从前人研究中，我们发现传统机器学习方法对小样本友好，并且有一定的可解释性。
+
+
+%传统的语音特征主要包括韵律特征、频谱特征、声门特征、声源等。其中韵律特征如基频、停顿时间和反应延迟增加语音能量；频谱特征如共振峰、共振峰频率和梅尔倒谱系数；其他特征如语音质量特征中的抖动。然而，不同的人在不同的语音相关特征方面有独特的特点，找到并选取抑郁症患者与非抑郁症患者区别较大的语音特征进行实验，才能获得较高的识别率。总之，语音特征目前在抑郁症的识别领域应用十分广泛，但目前相关研究结果表明，尚未找到有效的语音特征用于抑郁症分类识别实验。
+
+%如前文所述，抑郁症患者与正常人相比，在认知和精神运动方面存在差异。由于语言的敏感性，轻微的身体或认知变化会导致明显的听觉变化[20,45,46]。在SDR的早期研究中，经常使用低水平的声学特征和统计特征，而一些特征提取工具直接提取特征，如COVAREP, OpenSMILE。常用的声学特征如下
+
+
+%prosodic, voice quality, spectral and glottal features
+
+%与抑郁症患者语音相关的特征包括韵律特征、声源特征、共振峰特征、频谱特征。
+%韵律类别包括基频 (F0)、对数能量 (LogE)、抖动和微光的测量。其中，基 频 是 最 常 见 的 韵 律特 征之一， 基 频 的 变 化 范 围 以 及 均 值 降低 可 能 与 抑郁 症 的 严 重 程 度 有 关。与嗓音质量特征有关的参数是频率微扰(jitter）、振幅微扰（shimmer)、声门参数（glottal parameter）。频率微扰和振幅微扰共同反映声带振动的稳定性，声门谱反映发声功能状况。
+%Formant features include information about vocal tract resonance and pronunciation efforts, which reflect the characteristics of physical vocal tract. The first three formants (F1‐F3) are usually used as formant characteristics.
+%频谱特征是声道（vocal tract）形状变化和发生运动（articulator movement）之间相关性的体现，常用的频谱特征包括功率谱密度(Power Spectral Density)和梅尔倒频谱特征（MFCC）。以上四种类型特征常常以帧为单位进行提取，得到帧级 LLD。同时他们能使用一些特征提取工具直接提取，如OpenSMILE、COVAREP 等。
+%由于抑郁症症状复杂多样，单一特征无法很好的表征它。众多研究者通过构造和组合多个语音特征，建立性能更强的抑郁症识别模型。Shankayi 等人的研究成果表明，“韵律+声带谱+声门”的组合特征类型效果比其中任何一个单独的特征类型识别的效果都要好很多。
+In the study of speech-based depression recognition, acoustic characteristics principally include prosodic, voice quality, formant, and spectral features\cite{france2000acoustical,moore2003analysis}.
+The prosodic features were computed from the speech waveform and included fundamental frequency (F0), log of energy, jitter and shimmer\cite{france2000acoustical}.
+Where F0 is one of the most prevalent prosodic features, and its range of variation and decrease in mean value may be related to the severity of depression.
+The parameters related to voice quality features are frequency perturbation, amplitude perturbation, and glottal parameters.
+The glottal spectrum shows the condition of vocal function, while frequency and amplitude perturbation combined describe the stability of vocal fold vibration\cite{moore2007critical}.
+Formant features provide information regarding vocal tract resonance and pronunciation efforts, which represent physical vocal tract properties.
+As formant features, the first three formants are commonly employed.
+Spectral features are a reflection of the relationship between the shape change of the vocal tract and the articulator movement, and the most widely utilized features are PSD and Mel-scaleFrequency Cepstral Coefficients (MFCC).
+The four types of features mentioned above are regularly extracted in frames to generate frame-level Low Level Descriptors (LLDs).
+Meanwhile, they can also be extracted directly using feature extraction tools such as OpenSMILE, COVAREP.
+A single acoustic feature cannot adequately describe depressive symptoms due to their complexity and variety.
+As a result, many researchers have developed and mixed various acoustic features to build higher-performance depression recognition models.
+Shankayi et al.\cite{shankayi2012identifying} extracted three categories of features from speech signals: prosodic, vocal tract spectrum, and glottal source. The results showed that using features all together leads to better results than using each category alone.
+
+
+
+
+
+
+
+%Teager 能量算子 (TEO) 对信号瞬时频率和幅度的瞬态变化表现出高灵敏度，从而能够检测到额外的谐波
+
+
+%与嗓音质量特征有关的参数是频率微扰(jitter）、振幅微扰（shimmer)、声门参数（glottal parameter）。频率微扰和振幅微扰共同反映声带振动的稳定性，声门谱反映发声功能状况。
+%频谱特征是声道（vocal tract）形状变化和发生运动（articulator movement）之间相关性的体现，常用的频谱特征包括功率谱密度(Power Spectral Density)和梅尔倒频谱特征（MFCC）。
+
+
+%从先前的研究来看，基于语音的抑
+%郁症识别研究在朝着语音特征和机器学习相结合的方向发展。由于抑郁症症状复
+%杂多样，单一特征无法很好的表征它。众多研究者通过构造和组合多个语音特征，
+%建立性能更强的抑郁症识别模型
+%从前人研究中，我们发现传统机器学习方法对小样本友好，并且有一定的可解释性
+
+
+%我们工作的目的是研究言语类型和情绪对抑郁症分类的影响，并为检测抑郁症提供有效的措施。首先，该研究使用三种流行的分类器：K 最近邻（KNN）、高斯混合模型（GMM）和支持向量机（支持向量机）。
+%在SDR的早期研究中，通过特征提取后采用传统的分类或回归算法，如支持向量机(SVM)、Logistic回归(LR)、 随机森林、决策树、高斯混合模型(GMM)、K均值等，如表2所示。
+%SDR中使用了传统的机器学习算法，如支持向量机(SVM)[24 27]、隐马尔可夫模型[28]、高斯混合模型(GMM)[27,29,30]、K均值[31,32]、Boosting LogisticRegression[33 35]、多层感知器[30,35]等
+
+%在基于语音识别抑郁症的传统方法研究中，通过特征提取后采用传统的分类或回归算法，如支持向量机(SVM)、 高斯混合模型、KNN等，
+%为了提高分类精度，也有研究应用分类器的组合。
+
+In traditional speech-based depression recognition studies, SVM\cite{nasir2016multimodal,gong2017topic,cummins2013spectro,helfer2013classification} and Gaussian
+Mixture Model (GMM)\cite{helfer2013classification,williamson2013vocal,alghowinem2013comparative} are the two most popularly utilized modeling and classification methods.
+Jiang et al.\cite{jiang2017investigation} studied 170 subjects and proposed a computational methodology based on SVM (STEDD). They documented accuracies of 75.96\% for females and 80.30\% for males.
+Ooi et al.\cite{ooi2014prediction} studied 30 subjects (15 were at risk of depression and 15 were not at risk) and presented an ensemble method using GMM classifiers that used prosodic and glottal features. They reported a classification result of 74\%.
+Alghowinem et al.\cite{alghowinem2013comparative} summarized low-level descriptors and statistical features of 60 subjects (30 controls and 30 depressed patients) and compared four classifiers: GMM, SVM, Hierarchical Fuzzy Signature, and Multilayer Perceptron Neural Network. They concluded that GMM and SVM performed better.
+
+
+
+
+
+
+\subsubsection{Speech depression recognition based
+on deep learning}
+%对于SDR[36]，许多研究已经从传统的手工制作声学特征转向基于深度学习的框架。
+
+%深度学习方法在这一领域有两种应用方式。一种是从语音信号中提取手工特征，输入到深度神经网络[37]中，深度框架只作为分类器。%二是基于原始音频信号的端到端深度架构，将频谱输入深度网络，自动学习高级特征[38]。
+%二是基于谱图的端到端深度架构，将光谱图作为卷积神经网络(CNN)的输入，从光谱图中提取低水平特征，其中光谱图是短时间傅里叶变换(STFT)的对数尺度图。 深度学习可以解决手工制作的特征所遇到的门槛高、人工成本高、特征利用率低等问题，慢慢成为机器学习领域的领先者。
+%与传统方法相比，确定模型和参数后不需要人工干预。深度学习的本质是通过建立更多的隐藏层模型来自动学习高层次的抽象特征，以提高分类或分数预测的准确性。
+
+More recently deep learning methods have showed their capacity in many audio based applications. These methods learn discriminative features through multiple layers and performed better than traditional methods.
+There are three ways to employ deep learning in this area, depending on the format of the input data.(1)Acoustic features based deep learning model: Traditional acoustic features are put into the deep classifier for training, recognition or prediction;
+(2)Spectrogram based deep learning models: Spectrograms are given as input to CNN and low level features are extracted from spectrograms where spectrogram is log scale plot of Short time fourier transform.
+(3)End to end deep learning models: Pushing raw signal into deep architecture to let model learn high-level features by itself. Architecture of these models is shown in Fig.\ref{Speech02} .
+\begin{figure}
+\centering
+\includegraphics[height=6cm,width=9cm]{Speech2.jpg}
+\caption{Flow diagram of speech depression recognition based on deep learning,
+with the first to third rows representing acoustic feature-based, spectrogram-based, and end-to-end deep learning models, respectively.
+}
+\label{Speech02}
+\end{figure}
+
+Figure 2 shows the deep learning based speech depression recognition,
+
+
+%众所周知的特性，如MFCCs和logMel，提取起来相当简单，并且具有少量维，这可能比原始信号更适合于低资源设置。
+CNN could capture spatial properties of features and has the ability of parallel computing. Therefore, CNN can be used as a classifier for traditional acoustic features.
+Well known features, like MFCCs and logMel are fairly simple to extract and have a small number of dimensions which might be more suitable to a low-resource setting than raw signal.
+Du et al. \cite{du2018bipolar} presented a novel audio-based approach, called IncepLSTM, which effectively integrated Inception module and LSTM on the 16-dimensional MFCCs to capture multi-scale temporal information for Bipolar Disorder recognition. What's more, experiments were conducted on the AVEC 2018 dataset and the results demonstrated the effectiveness of their proposed approach.
+
+
+%语谱图将语音信号从一维信号转为二维信号，并且语谱图不仅反映了语音信号的动态频谱特征，而且将语音可视化。有研究表明，抑郁症患者和非抑郁患者的语谱图呈现显著差异。健康人的语谱图，语音强度更集中在低频，而对于抑郁症患者，高频成分也更集中，强度更集中在较短的时间间隔内。
+The spectrogram converts the speech signal from a 1-dimensional to a 2-dimensional signal, and it not only represents the dynamic spectral properties of the speech signal but also visualizes the speech.
+There are observable differences between the speech spectrograms of depressed and non-depressed people.
+In the spectrograms of non-depressed samples, intensity of speech is concentrated more at lower frequencies and low at higher frequencies, whereas, in depressed speech samples, high frequency components also exists with higher intensities and intensity is presented more in short periods of time intervals. Therefore, CNN can use these kind of features from spectrograms to identify depression.
+Srimadhur et al.\cite{srimadhur2020end} carried out an investigation on depression detection using spectrogram based CNN. And speech samples from audio visual emotion challenge (AVEC) 2016 DAIC-Woz dataset were utilized for validating the models.
+However, most of the input speech features of these studies are based on the amplitude spectrogram, which loses the phase spectrogram information.
+Therefore, these speech features may lose some important information related to depression.
+In order to make full use of speech information, Fan et al. \cite{fan2022csenet} proposed a complex squeeze-and-excitation network (CSENet) for SDLP, which used the complex spectrogram as the input feature. The complex spectrogram contains all of the speech information both amplitude and phase spectrogram.
+
+%End to end deep learning model: Pushing raw signal into deep architecture to let model learn high-level features by itself.
+End to end deep architecture have advantages like that it does not require scholars to have a priori knowledge, deep networks can learn better features and give better classification result. %However, there are a few issues which limit end-to-end deep architectures, such as large-scale
+%data supporting, overfitting easily and poor interpretability.
+Srimadhur et al.\cite{srimadhur2020end} proposed spectrogram based CNN and end to end CNN models to estimate the severity level of depression on AVEC 2016 DAIC-woz dataset.
+Experimental analysis has shown that performance of end to end model is ahead of spectrogram based model and baseline models by an efficiency of 13\%.
+
+
+
+
+
+
+
+
+
+
+%
+%在[20]中，作者建议语音模式的分析可以分为三大类，包括韵律、声道和声门源。虽然手工制作的特征已被证明在估计抑郁症严重程度方面有更好的表现。然而，手工制作的特征对抑郁症的规模预测有一定的局限性。首先，设计手工制作的功能需要大量的努力(例如，领域知识、劳动力和时间等)。例如，Mel频率倒谱系数(MFCCs)被广泛应用于自动语音和说话人识别任务。然而，如果我们设计了像MFCCs这样的手工特征，我们就应该拥有关于抑郁症的特定任务知识，而获取这些知识是非常耗时的。其次，手工制作的特征可能会丢失一些与抑郁症模式相关的有用信息。具体来说，视听信号中隐含的某些抑郁模式无法被很好地挖掘。此外，设计功能的概念依赖于人们的主观假设。最后，很难选择合适的工具包来提取特性。各种可用的工具包被广泛用于提取底层特征，如openSMILE[21]、COVAREP[22]、SPTK[23]、KALDI[24]、YAAFE[25]、OpenEAR[26]。每个现有的工具箱通常是单个实验室工作的结果。不同的研究人员从各自的角度考虑特征。目前还没有统一的标准来定义哪种特征对抑郁症分析最有用。
+
+
+
+%最近，深度学习已经成功地应用于各个社区。理论和实验都表明，深度学习可以从视听信号中学习到很多有价值的信息。深度学习方法有多种变体，如单层学习模型、概率模型、自编码器和卷积神经网络。读者对深度学习方法有更深入的理解的参考[27]。在这些不同的深度学习表示中，卷积神经网络在许多社区[28]，[29]，[30]中得到了广泛的应用，达到了最先进的性能。此外，该方法在纹理分类场景中被证明是相当有效的。在[31]中，作者证明了基于cnn的方法与最先进的数据集与宏观图像相匹配，并优于在微观图像上发表的最佳结果。在森林物种识别方面，本文提出的CNN结构的性能也超过了现有的纹理描述符。据我们所知，从声谱图中深度学习的特征用于抑郁症识别还没有被探索。因此，在这项工作中，我们探索了抑郁症的严重程度预测可以受益于采用CNN在学习语音的谱图模式。
+
+\subsubsection{Performance Comparison}
+We evaluate the depression recognition method based on speech.
+The performance comparisons based
+on  traditional machine learning and deep learning are summarized in Table~\ref{tab_1} and Table~\ref{tab_2} respectively.
+From the table we obtain the following three observations:
+
+(1)
+Comparative analysis of the performances of several classifiers in depression assessment and prediction indicate that the use of an hybrid classifier using GMM and
+SVM model gave the best overall classification results\cite{alghowinem2013comparative}. Different fusion methods, namely feature, score and decision fusion
+have been also investigated in \cite{alghowinem2013comparative} and it has been demonstrated that : first, amongst the fusion methods, score fusion performed better when combined with
+GMM, HFS and MLP classifiers. Second, decision fusion worked best for SVM
+(both for raw data and GMM models) and finally, feature fusion exhibited weak
+performance compared to other fusion methods.
+
+(2)
+Performance of end to end model is better than spectrogram based convolutional neural network model.
+Srimadhur\cite{haque2018measuring} conducted an experiment on depression detection using spectrogram based CNN and end to end deep models. Parameter tuning has been performed and comparative analysis has been carried out between two models and best model has been chosen for categorizing the depression state. The results indicated that performance of end to end model was better than the baseline models and spectrogram based convolutional neural network model on DAIC-woz dataset.
+Main reason is because of variability in the volume during recording of data samples and normalized the data samples to reduce this affect but there is no changes in the spectrogram of data samples so this spectrogram based convolutional neural networks for depression detection is ineffective to variance of speaker volume.
+
+
+
+%%这
+%Reason: End to end deep architecture have advantages like that it does not require scholars to have a priori knowledge, deep networks can learn better features and give
+%better classification result. However, there are a few issues
+%which limit end to end deep architectures, such as large-scale
+%data supporting, overfitting easily and poor interpretability.
+
+(3)So far, the most popular method is still the combination of acoustic features and deep classifiers.
+As it could solve the problems encountered in hand-crafted features, such as high
+threshold, labour cost and low feature utilization rate, deep
+learning slowly becomes the leader in the field of machine
+learning.
+Although the end-to-end model also has better performance, it is difficult to determine the contribution of each module in the architecture due to its end to end characteristics, limiting further performance improvement.
+%In a word, end to end deep architectures have not yet been widely used in the field of SDR because of its poor interpretability, flexibility and current limited dataset scale.
+
+%Compared to traditional classifiers, deep classifiers have many advantages, including dealing with complex structures and functions, and unlabelled and incorrectly labelled data.
+
+%In the reported works appreciable performances have been achieved however manual hand-picked features have
+%been utilized which requires subject knowledge and used shallow architectures.
+%
+%End to end deep model is difficult to determine the
+%contribution of each module in the architecture due to its end to end characteristics, limiting further performance improvement.
+
+
+%When used as a classifier, deep classifiers have many advantages, including dealing with complex structures and functions,
+%and unlabelled and incorrectly labelled data.
+%
+%Compared to traditional classifiers, deep classifiers have many advantages, including dealing with complex structures and functions, and unlabelled and incorrectly labelled data.
+
+
+
+
+
+
+%When used as a feature extractor,
+%deep learning can avoid high labour cost and large-scale loss of feature, and the extensibility is better than traditional method.
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table*}
+\caption{ Overview of traditional machine learning based methods for Depression
+Assessment from Speech.}
+\label{tab_1}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{@{}ccccc@{}}
+\hline
+\textbf{Paper} & \textbf{Dataset}     & \textbf{Classifiers}             & \textbf{Metrics} & \textbf{Performance} \\ \hline
+Ringeval\cite{ringeval2017avec}       & SEWA                 & Random forest                    & RMSE/MAE         & 7.78/5.72            \\
+Low\cite{low2010detection}           & hand-craftes dataset & SVM+GMM                          &                  &                      \\
+Alghowinem\cite{alghowinem2013comparative}      & hand-craftes dataset & SVM+GMM+decision fusion          & Accuracy         & 91.67\%              \\
+Valster\cite{valstar2013avec}        & AVid-Corpus          & SVR                              & RMSE/MAE         & 14.12/10.35          \\
+Cummins\cite{cummins2011investigation} & AVEC2013             & SVM                              & Accuracy         & 82\%                 \\
+Meng\cite{meng2013depression}& AVEC2013             & Partial least square regression  & RMSE/MAE         & 11.54/9.78           \\
+Williamson\cite{williamson2014vocal} & AVEC2014             & GMM                              & RMSE/MAE         & 8.50/6.52            \\
+Nasir\cite{nasir2016multimodal} & DAIC-WOZ             & SVM                              & F1               & 63\%                 \\
+Gong\cite{gong2017topic}& DAIC-WOZ             & SVM                              & RMSE/MAE         & 4.99/3.96            \\
+Jayawardena\cite{jayawardena2020ordinal}  & DAIC-WOZ             & LR                               & RMSE             & 6.84                 \\
+Valstar\cite{valstar2016avec}        & DAIC-WOZ             & SVM + grid search +random forest & RMSE/MAE         & 7.78/5.72            \\ \hline
+\end{tabular}}
+\end{table*}
+
+\begin{table*}
+\caption{Overview of deep learning based methods for depression
+assessment from speech.}
+\label{tab_2}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{cccccc}
+\hline
+\textbf{Paper} & \textbf{Dataset} & \textbf{Features} & \textbf{Classification} & \textbf{Metrics} & \textbf{Performance} \\ \hline
+Kang\cite{kang2017deep}& AVEC2014         & LLDs & DNN                     & RMSE/MAE         & 7.37/5.87            \\
+Yang\cite{yang2017hybrid}& DAIC-WOZ         & LLDs & DCNN                    & RMSE/MAE         & 5.97/5.16            \\
+Al Hannai\cite{al2018detecting}& DAIC-WOZ         & LLDs & LSTM-RNN                & RMSE/MAE         & 10.03/7.60           \\
+Dham\cite{dham2017depression}& DAIC-WOZ         & LLDs & FF-NN                   & RMSE/MAE         & 7.63/6.28            \\
+Salekin\cite{salekin2018weakly}& DAIC-WOZ         & LLDs & NN2Vec + BLSTMMIL       & F1-score         & 85.44\%              \\
+%Alhanai        & DAIC-WOZ         & Raw signal        & LSTM                    & RMSE/MAE         & 6.27/4.97            \\
+Zhang\cite{zhang2021depa}& DAIC-WOZ         & Spectrogram       & Transformer             & RMSE/MAE         & 5.73/4.75            \\
+Othmani\cite{othmani2021towards}& DAIC-WOZ         & LLDs+ spectrogram & LSTM                    & F1-score         & 82\%                 \\
+Srimadhur\cite{haque2018measuring}& DAIC-WOZ         & Raw signal        & CNN                     & F1-score         & 78\%                 \\
+Srimadhur\cite{haque2018measuring}& DAIC-WOZ         & Spectrogram       & CNN                     & F1-score         & 66\%                 \\
+Ma\cite{ma2016depaudionet}& DAIC-WOZ   & Spectrogram  & Depaudionet      & F1-score  & 52\%                 \\ \hline
+\end{tabular}}
+\end{table*}
+
+
+
+%
+%支持向量机是一种经典的基于统计量的机器学习算法，在高维、小样本和非线性问题中表现出良好的性能。由于提取的高维声学特征、小尺度抑制性语音数据集，SVM成为SDR早期研究中最受欢迎的分类算法[24 27,58]。 例如，Gong等人采用了一种基于主题建模的方法来探索上下文相关信息——在抑郁数据(音频，视频，文本)中使用了一个具有三个核(线性，多项式，径向基函数)的支持向量回归函数(SVR)，用于他的预测任务[25]。 但是，该算法训练速度慢，性能受核函数和模型参数组合的影响，结果的可解释性稍差。
+
+
+
+
+\ifx\allfiles\undefined
+\input{tnnls_suffix}
+\fi

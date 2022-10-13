@@ -1,0 +1,166 @@
+% !TEX root = tnnls_relation_gait.tex
+
+\ifx\allfiles\undefined
+    \input{tnnls_prefix}
+\fi
+%\section{Depression Recognition}
+\section{Depression recognition method based on multi-modal data}
+%除了使用单一的生理或行为数据辅助抑郁症诊断 ，也 有 很 多 研 究 尝 试 使 用 多 模 态 数据进行诊断［68-72］，如使用音频、视频、语言和睡眠数据区分正常人与抑郁症患者［73］，F1得分（统计学中用来衡量二分类模型精确度的一种指标，它同时兼顾了分类模型的精确率和召回率）最高达到87.7\%，基于表达、声音和语言（文本）的多模态辅助诊断重度抑郁症患者［74-75］，
+%F1 得分最高为 83.0\%。相对于单模态数据，多模态数据具有更多的特征，能够更加全面地描述
+%抑郁症病人的症状表现。机器学习算法能够提取多模态数据更多深层次的特征，建立更加精确的预测模型。但是相对于单模态数据来说，多模态数据的处理更加困难。
+
+%多模态数据融合技术作为一种数据处理的手
+%段已经广泛应用于各个领域，其核心思想在于通过融合不同模态或不同数据源的
+%数据来得到效果更好、信息更加全面的数据。通过多模态融合的手段可以将不同
+%来源、不同类别、不同时间点的数据转化为人们需要的数据形式，以便于人们进
+%行更深层次的研究并提升最终的实验效果。
+
+
+%目前，大多数抑郁识别研究仅基于单一生理指标，例如基于脑电信号、眼动信号、语音信号 、面部表情 、文本等等，虽然这些单一生理指标看起来可能完全不同，但它们可以用来描述相同的现象 。 例如，对于抑郁症患者，当刺激出现时，语音数据上表现出更长的反应时间和更低的发音率，而眼动数据上表现出眨眼率增加和平均眨眼持续时间延长 。不同的模态
+%可能是相关的，并且每种模态都有独特的优势。因此，虽然单一生理指标可以在
+%一定程度上有效识别抑郁，但仅提供部分信息，并不能全面反映抑郁症，存在一
+%定局限性，多种生理信号融合可以实现优势互补，进而更全面更准确地进行抑郁
+%识别。目前基于多种生理信号的抑郁识别研究尚处于初级阶段 ，各方面研究
+%仍不完善，因此进行模态融合的抑郁识别更具有理论意义和研究价值。
+%
+%单一生理指标可以在一定程度上识别抑郁，但对抑郁症特征的反映不够全面，
+%不同的情感障碍可能会引发大脑功能的相同变化及行为上的相同表现，单纯使用
+%单一模态的数据有时无法准确地进行抑郁症预测。而多模态数据能够借助信息的
+%互补性拓宽输入数据的信息覆盖范围，从而提高抑郁识别正确率。随着计算机和
+%大数据技术的发展，越来越多的学者尝试使用机器学习、模式识别、深度学习等
+%方法进行多模态数据融合，已有研究表明，多模态数据的融合可以提高对抑郁症
+%的识别正确率。
+
+%近年来，基于脑电、眼动、脑影像、语音、网络行为等能够反应生理、心理
+%变化的抑郁识别方法受到广泛关注，成为研究热点。但单一生理指标对抑郁症特
+%征的反映不够全面，
+%而多模态数据能够借助信息的互补性拓宽输入数据的信息覆
+%盖范围，从而提高抑郁识别正确率
+As described in Section 3, most studies have been conducted to detect depression based only on single physiological indicators, such as EEG, EM, speech signals, facial expressions, text, etc.
+Although single indicators can identify depression to some extent, they do not give a comprehensive representation.
+For example, in case of a depressed person, when a stimulus is presented, speech signals showed a longer response time and lower pronunciation rate~\cite{alghowinem2016multimodal}, while EM  showed decreased eyebrow movement and elevated blink rates ~\cite{sobin1997psychomotor, ellgring2007non, mackintosh1983blink}; thus, it is considerably likely that both modalities are correlated.
+It seems obvious that the signal from single modality provided only partial information, while a combination of different modality signals can be used to form a more realistic model for recognizing depression than the former~\cite{gupta2014multimodal}.
+So, there is increasing interest in using different modalities to handle information.
+
+
+
+
+
+%The depression recognition model based on single-mode data has achieved a lot of results
+%
+%
+%Although these single indicators may look completely different, they can be used to describe the same phenomena. For example,
+%
+%Although most researchers have studied single modality, there is increasing interest in using different modalities to
+%handle information. Gupta et al.[17]suggested that the signal from single modality provided only partial information, while
+%a combination of different modality signals can be used to form a more realistic model for recognizing depression than
+%the former.
+
+
+
+
+%Further,multi-modal depression detection has also attracted significant attention from researchers[24],[25].
+%Several studies have been conducted to identify depression based on voice [26]–[28], event-related potential [29], facial expressions [30], [31], EEG [7], [32] and EM [3], [33]. Though these data might seem quite different, these can be used to
+%describe the same phenomena [18]. For example, in case of a depressed person, when a stimulus is presented, voice data showed a longer response time and lower pronunciation rate, while EM data showed increased blink rate and longer average blink duration [34]; thus, it is considerably likely that both modalities are correlated.
+%Nevertheless, each modality has its own advantages.
+%It seems obvious that multi-modal fusion of different modalities can improve classification performance, because it provides more useful information compared with using only a single modality.
+
+
+
+
+
+
+%To our knowledge, there is no prior work reported in the literature related to depression recognition based on multiple physiological signals using multi-modal deep learning.
+%据我们所知，此前没有文献报道过使用多模态深度学习基于多种生理信号识别抑郁症。
+
+%The depression recognition model based on single-mode data has achieved a lot of results, but it also has some limitations. For example, abnormal gait may also be caused by physiological diseases, physiological signals are not easy to collect, and data such as voice and facial expression are highly affected by the environment. Therefore, only use data from a single modality cannot satisfy the needs of clinical depression diagnosis. In recent years, more and more studies have combined multimodal data for depression assessment and detection, and also have achieved good results.
+
+
+
+
+In short, a more accurate and robust depression recognition model can be constructed by integrating complementary information from different modalities that reflect different aspects of depression.
+In this section, we will generally divide depression detection based on multi-modal data into three categories: depression recognition method based on multiple electrophysiological signals, depression recognition method based on multiple brain imaging, and depression recognition method based on multiple audio and video data.
+
+
+
+\subsection{Depression recognition method based on multiple electrophysiological signals }
+
+
+Various studies have shown that electrophysiological signals such as EEG, ECG, EOG, and EMG can reflect a person's
+physiological and emotional state to varying degrees, which is helpful for clinically assisted diagnosis of depression~\cite{sornmo2005bioelectrical}.
+Further, electrophysiological signals not only have the benefits of good timing and convenient operation, but also have higher generalizability and stability of the developed depression recognition model~\cite{he2020advances}.
+Therefore, with the continuous development and update of machine learning, research into the depression recognition using multiple physiological signals has increasingly attracted attention.
+The researches generally adopt feature level fusion or decision level fusion in depression recognition.
+%特征级融合
+
+%Due to the limited information recorded by single-modality data, more and more researchers are devoted to the study of multi-modal data fusion.
+
+%脑电与心电信号具有时序性好，操作流程便捷等优点，通过脑电和心电信号
+%组成的抑郁症识别客观指标以及构建的抑郁症识别模型将会有更好的普适性和
+%稳定性。因此，随着人机交互技术的不断发展与更新，基于脑电与心电信号来辅
+%助诊断抑郁症的相关研究也越来越受到重视与关注。
+
+\subsubsection{Feature level fusion}
+
+%特征层融合：特征层融合的主要原理是先对原始数据进行特征提取和特征选择，筛选出各个模态的特征矩阵，之后通过某种融合算法将提取出来的特征矩阵融合成为一个联合特征矩阵。以抑郁症识别为例，特征层融合的具体流程如图 2-4 所示。
+%特征层融合对经过特征提取之后的数据进行融合，具体可以分为串行的特征层融合和并行的特征层融合。特征层融合旨在从提取的特征中找到数 据之间的关联，或对模态进行评估，这样做可以在一定程度上减少噪声干扰，提高模型效率。
+
+%The main principle of feature level fusion is to first perform feature extraction and feature selection on the original data to filter out the feature matrix of each modality, and then fuse the extracted feature matrix into a joint feature matrix by some fusion algorithm.
+
+\begin{figure}[tbp]
+	\centering	
+	\label{multi-modal_01}\includegraphics[width=0.9\linewidth]{multi-modal_01.jpg}		
+	\caption{
+     Flow chart of fusion based on multiple electrophysiological signals (taking two modalities as an example): subfigures a and b represent feature level fusion and decision level fusion, respectively.
+	}
+	\label{multi-modal_01}
+\end{figure}
+Feature level fusion, which can be divided into serial and parallel forms, is the fusion of the data that results from feature extraction~\cite{haghighat2016discriminant,yang2003feature}.
+Feature level fusion aims to find correlations between data from the extracted features or to evaluate the modalities, which can reduce noise interference and improve model efficiency to some extent.
+Taking depression recognition based on multiple electrophysiological signals as an example, the specific process of feature level fusion is shown in Fig~\ref{multi-modal_01}.
+In order to identify depressions, Zhu et al.~\cite{zhu2019multimodal} proposed a model based on feature level fusion.
+And they validated the presented classification model by collecting two physiological signals, EEG and EM.
+The experimental result indicated that the feature fusion method slightly improved the recognition accuracy by 1.88\%, compared with the unimodal classification approach that uses only EEG or EM.
+Thus, it was concluded that the feature level fusion methods can improve the mild depression recognition accuracy, demonstrating the complementary nature of the modalities.
+
+%Jing Zhu（2019）等人采集了脑电和眼动两种生理电信号的数据，构造了一种基于特征层融合de 抑郁症识别模型 [29] 。实验采集了 39 名受试者（19名正常对照受试者和 20 名轻度抑郁受试者）的 1170 个样本来对提出的分类模型进行验证。实验结果表明，与仅使用脑电或眼动的单模态分类方法相比，特征融合方法将识别准确率提高了1.88%。从而得出结论，特征融合方法能提高轻度抑郁症的识别精度，体现了模式的互补性。
+
+%特征层融合处于三种融合技术的中间层，该方法将多种模态的特征矩阵按照某种融合方式进行拼接，有效的利用了各个模态数据之间的特性，往往能提升分类的准确率。但是找到一种较为合适的融合方式并不容易，如果方法不当有时反而会带来负面影响。
+
+
+
+
+\subsubsection{Decision level fusion}
+
+%决策层融合：决策层融合也是目前应用较为广泛的一种融合技术，其主要思想是将每种模态得到的信息进行单独决策，再将这些决策的结果以某种方式融合。也就是说，先单独处理每一种模态的数据和信息，对每种模态的数据进行特征提取和选择得到该模态的特征矩阵，之后将各个特征矩阵带入到各自的分类器中，得到每种模态的决策结果，最后，再通过某种融合的方式将各个模态的决策结果进行融合，得到最终的决策结果。以抑郁症识别为例，决策层融合的具体流程如图 2-5 所示。决策层融合处于三种融合技术的最顶端，相比于前两种融合方式，决策层无法有效的利用各个模态之间的数据进行互补，这就导致了决策层融合决策精度普遍较低。但由于其拥有容错性高、计算量小等特点，因此也同样被广泛地应用在各个领域中。
+Decision level fusion is the process of taking the information obtained from each modality and making independent decisions, and then fusing the outcomes of these decisions in some ways.
+Taking depression recognition based on multiple electrophysiological signals as an example, the specific process of decision level fusion is shown in Fig~\ref{multi-modal_01}.
+Among the different fusion strategies, decision level fusion has unique advantages to fuse the output of various classifiers and getting an effective result.
+It can also synthesize multi-source information and avoid mutual interference.
+However,  the classification results of each modality are usually not completely reliable, and there are misclassifications.
+Moreover, the classification results from different modalities of one object may have high conflict, and this is very unfavorable to the fusion result.
+To solve these problems, Zhu et al.~\cite{zhu2022content}  proposed a content-based multiple evidence fusion (CBMEF) method, which fused EEG and EM data at decision level.
+The method mainly included two modules, the classification performance matrix module and the dual-weight fusion module.
+The classification performance matrices of different modalities were estimated by Bayesian rule based on confusion matrix and Mahalanobis distance, and the matrices were used to correct the classification results.
+Then the relative conflict degree of each modality was calculated, and different weights were assigned to the above modalities at the decision fusion layer according to this conflict degree.
+The idea of introducing the classification performance matrix and the dual-weight model to multimodal biosignals fusion casts a new light on the researches of depression recognition.
+
+
+
+
+
+\subsection{Others}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In addition to the above three types of multimodal fusions, there are a number of other modal fusions that have also attracted extensive attention from researchers.
+For example,
+Bruder et al.~\cite{bruder2012relationship} combined high temporal resolution EEG signals with MRI data to increase the precision of identifying depression.
+Zhang et al.~\cite{zhang2019multimodal} explored from physiological and behavioral perspectives simultaneously and fused pervasive EEG and speech signals to make the detection of depression more objective, effective and convenient.
+Jing et al.~\cite{jing2019different}  built a supervised regression model based on personal language and natural gait data to predict depression and anxiety in patients. Their results could be a basis of both applications and future studies on the multi-source data fusion in anxiety and depression recognition.
+
+\subsection{Performance Comparison}
+
+
+
+\ifx\allfiles\undefined
+\input{tnnls_suffix}
+\fi

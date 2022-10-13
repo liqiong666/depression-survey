@@ -1,0 +1,407 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2021.11.2)  19 SEP 2022 21:32
+entering extended mode
+**C:/Users/Administrator/Desktop/论文收集/新版综述/depression_review/3_
+multimo.tex
+
+(C:/Users/Administrator/Desktop/论文收集/新版综述/depression_review/3_m
+ultimo.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for loaded.
+
+(C:\Users\Administrator\Desktop\论文收集\新版综述\depression_review\tnn
+ls_prefix.tex
+(C:\Users\Administrator\Desktop\论文收集\新版综述\depression_review\IEE
+Etran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+\@IEEEtrantmpdimenA=\dimen102
+\@IEEEtrantmpdimenB=\dimen103
+\@IEEEtrantmpdimenC=\dimen104
+\@IEEEtrantmpcountA=\count79
+\@IEEEtrantmpcountB=\count80
+\@IEEEtrantmpcountC=\count81
+\@IEEEtrantmptoksA=\toks14
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 503.
+
+(D:\Install\CTex\MiKTeX\tex\latex\psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+\@IEEEnormalsizeunitybaselineskip=\dimen105
+-- This is a 10 point document.
+\CLASSINFOnormalsizebaselineskip=\dimen106
+\CLASSINFOnormalsizeunitybaselineskip=\dimen107
+\IEEEnormaljot=\dimen108
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+\IEEEquantizedlength=\dimen109
+\IEEEquantizedlengthdiff=\dimen110
+\IEEEquantizedtextheightdiff=\dimen111
+\IEEEilabelindentA=\dimen112
+\IEEEilabelindentB=\dimen113
+\IEEEilabelindent=\dimen114
+\IEEEelabelindent=\dimen115
+\IEEEdlabelindent=\dimen116
+\IEEElabelindent=\dimen117
+\IEEEiednormlabelsep=\dimen118
+\IEEEiedmathlabelsep=\dimen119
+\IEEEiedtopsep=\skip41
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@IEEEsubequation=\count86
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\c@figure=\count87
+\c@table=\count88
+\@IEEEeqnnumcols=\count89
+\@IEEEeqncolcnt=\count90
+\@IEEEsubeqnnumrollback=\count91
+\@IEEEquantizeheightA=\dimen120
+\@IEEEquantizeheightB=\dimen121
+\@IEEEquantizeheightC=\dimen122
+\@IEEEquantizeprevdepth=\dimen123
+\@IEEEquantizemultiple=\count92
+\@IEEEquantizeboxA=\box26
+\@IEEEtmpitemindent=\dimen124
+\IEEEPARstartletwidth=\dimen125
+\c@IEEEbiography=\count93
+\@IEEEtranrubishbin=\box27
+) (D:\Install\CTex\MiKTeX\tex\latex\cite\cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+)
+(D:\Install\CTex\MiKTeX\tex\latex\graphics\graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(D:\Install\CTex\MiKTeX\tex\latex\graphics\keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(D:\Install\CTex\MiKTeX\tex\latex\graphics\graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(D:\Install\CTex\MiKTeX\tex\latex\graphics\trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(D:\Install\CTex\MiKTeX\tex\latex\00miktex\graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(D:\Install\CTex\MiKTeX\tex\latex\pdftex-def\pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(D:\Install\CTex\MiKTeX\tex\generic\oberdiek\infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+(D:\Install\CTex\MiKTeX\tex\generic\oberdiek\ltxcmds.sty
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count94
+))
+\Gin@req@height=\dimen126
+\Gin@req@width=\dimen127
+)
+(D:\Install\CTex\MiKTeX\tex\latex\ams\math\amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+(D:\Install\CTex\MiKTeX\tex\latex\ams\math\amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(D:\Install\CTex\MiKTeX\tex\latex\ams\math\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen128
+))
+(D:\Install\CTex\MiKTeX\tex\latex\ams\math\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen129
+)
+(D:\Install\CTex\MiKTeX\tex\latex\ams\math\amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count95
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count96
+\leftroot@=\count97
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count98
+\DOTSCASE@=\count99
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen130
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
+\dotsspace@=\muskip10
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
+\tag@help=\toks17
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
+\andhelp@=\toks18
+\eqnshift@=\dimen131
+\alignsep@=\dimen132
+\tagshift@=\dimen133
+\tagwidth@=\dimen134
+\totwidth@=\dimen135
+\lineht@=\dimen136
+\@envbody=\toks19
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(D:\Install\CTex\MiKTeX\tex\latex\algorithms\algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+
+(D:\Install\CTex\MiKTeX\tex\latex\base\ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@ALC@unique=\count107
+\c@ALC@line=\count108
+\c@ALC@rem=\count109
+\c@ALC@depth=\count110
+\ALC@tlm=\skip47
+\algorithmicindent=\skip48
+)
+(D:\Install\CTex\MiKTeX\tex\latex\tools\array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen137
+\extrarowheight=\dimen138
+\NC@list=\toks21
+\extratabsurround=\skip49
+\backup@length=\skip50
+)
+(D:\Install\CTex\MiKTeX\tex\latex\subfig\subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(D:\Install\CTex\MiKTeX\tex\latex\caption\caption3.sty
+Package: caption3 2011/11/01 v1.4a caption3 kernel (AR)
+\captionmargin=\dimen139
+\captionmargin@=\dimen140
+\captionwidth=\dimen141
+\caption@indent=\dimen142
+\caption@parindent=\dimen143
+\caption@hangindent=\dimen144
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+\c@KVtest=\count111
+\sf@farskip=\skip51
+\sf@captopadj=\dimen145
+\sf@capskip=\skip52
+\sf@nearskip=\skip53
+\c@subfigure=\count112
+\c@subfigure@save=\count113
+\c@lofdepth=\count114
+\c@subtable=\count115
+\c@subtable@save=\count116
+\c@lotdepth=\count117
+\sf@top=\skip54
+\sf@bottom=\skip55
+)
+(D:\Install\CTex\MiKTeX\tex\latex\ltxmisc\url.sty
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+(D:\Install\CTex\MiKTeX\tex\latex\tools\enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks22
+)
+(D:\Install\CTex\MiKTeX\tex\latex\multirow\multirow.sty
+\bigstrutjot=\dimen146
+)
+(D:\Install\CTex\MiKTeX\tex\latex\graphics\color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(D:\Install\CTex\MiKTeX\tex\latex\00miktex\color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(D:\Install\CTex\MiKTeX\tex\latex\threeparttable\threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box30
+)
+(D:\Install\CTex\MiKTeX\tex\latex\booktabs\booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen147
+\lightrulewidth=\dimen148
+\cmidrulewidth=\dimen149
+\belowrulesep=\dimen150
+\belowbottomsep=\dimen151
+\aboverulesep=\dimen152
+\abovetopsep=\dimen153
+\cmidrulesep=\dimen154
+\cmidrulekern=\dimen155
+\defaultaddspace=\dimen156
+\@cmidla=\count118
+\@cmidlb=\count119
+\@aboverulesep=\dimen157
+\@belowrulesep=\dimen158
+\@thisruleclass=\count120
+\@lastruleclass=\count121
+\@thisrulewidth=\dimen159
+)
+(C:\Users\Administrator\Desktop\论文收集\新版综述\depression_review\3_m
+ultimo.aux
+
+LaTeX Warning: Label `multi-modal_01' multiply defined.
+
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 322.
+LaTeX Font Info:    ... okay on input line 322.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 322.
+LaTeX Font Info:    ... okay on input line 322.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 322.
+LaTeX Font Info:    ... okay on input line 322.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 322.
+LaTeX Font Info:    ... okay on input line 322.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 322.
+LaTeX Font Info:    ... okay on input line 322.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 322.
+LaTeX Font Info:    ... okay on input line 322.
+
+-- Lines per column: 58 (exact).
+(D:\Install\CTex\MiKTeX\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count122
+\scratchdimen=\dimen160
+\scratchbox=\box31
+\nofMPsegments=\count123
+\nofMParguments=\count124
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count125
+\MPscratchDim=\dimen161
+\MPnumerator=\count126
+\makeMPintoPDFobject=\count127
+\everyMPtoPDFconversion=\toks24
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+
+LaTeX Warning: No \author given.
+
+
+LaTeX Warning: No \author given.
+
+
+LaTeX Warning: No \author given.
+
+) <multi-modal_01.jpg, id=1, 744.381pt x 406.6392pt>
+File: multi-modal_01.jpg Graphic file (type jpg)
+ <use multi-modal_01.jpg>
+Package pdftex.def Info: multi-modal_01.jpg used on input line 112.
+(pdftex.def)             Requested size: 226.79846pt x 123.89137pt.
+
+Underfull \vbox (badness 1033) has occurred while \output is active []
+
+ [1{D:/Install/CTex/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}
+
+
+ <C:/Users/Administrator/Desktop/论文收集/新版综述/depression_review/mu
+lti-modal_01.jpg>]
+
+LaTeX Warning: Citation `mousavian2021depression' on page 2 undefined on input 
+line 165.
+
+
+LaTeX Warning: Citation `2021Deep' on page 2 undefined on input line 170.
+
+
+(C:\Users\Administrator\Desktop\论文收集\新版综述\depression_review\tnn
+ls_suffix.tex
+(C:\Users\Administrator\Desktop\论文收集\新版综述\depression_review\3_m
+ultimo.bbl) [2]
+(C:\Users\Administrator\Desktop\论文收集\新版综述\depression_review\3_m
+ultimo.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) )
+(\end occurred when \ifx on line 173 was incomplete) 
+Here is how much of TeX's memory you used:
+ 3808 strings out of 495354
+ 58931 string characters out of 3183411
+ 123881 words of memory out of 3000000
+ 6947 multiletter control sequences out of 15000+200000
+ 33047 words of font info for 62 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 38i,6n,38p,983b,223s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/Install/CTex/MiKTeX/fon
+ts/enc/dvips/fontname/8r.enc}<D:/Install/CTex/MiKTeX/fonts/type1/urw/times/utmb
+8a.pfb><D:/Install/CTex/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><D:/Install/CTe
+x/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on 3_multimo.pdf (2 pages, 205879 bytes).
+PDF statistics:
+ 23 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+

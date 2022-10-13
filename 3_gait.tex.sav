@@ -1,0 +1,354 @@
+% !TEX root = tnnls_relation_gait.tex
+
+\ifx\allfiles\undefined
+    \input{tnnls_prefix}
+\fi
+
+%\section{Depression Recognition}
+\section{Depression recognition method based on gait}
+\subsection{Gait}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Human gait, as a daily movement, occurs in parallel with the development of higher brain structures and functions (prefrontal cortex, basal ganglia and cerebellum) and reflects the integrity of the higher brain systems\cite{sheridan2007role}, thus it is a good indicator of mental status.
+Compared to traditional mental illness detection biometrics, such as facial expression, speech and physiological parameters, gait is remotely observable, more difficult to imitate, and requires less cooperation from the subject. These advantages make gait a promising source for depression recognition.
+
+Furthermore, researchers have also studied the gait characteristics of depression patients through motion analysis.
+Specifically, Lemake et al. [29] calculated the spatiotemporal gait parameters of patients with major depression disorder and found that the patients show significant reductions in stride length, cycle time, and lower limb support.
+Moreover, by using the motion capture system with video cameras, Michalak\cite{michalak2009embodiment} found reduced walking velocity, arm swing, vertical body movement, increased body sway and more slumped posture in patients.
+Slumped posture is often observed in depressive individuals during sitting, standing and walking.
+Thanks to the development of consumer-grade depth cameras (e.g., Kinect, the data collection
+scheme is shown in Fig~\ref{kinect}), human body dynamics can be traced accurately in a three dimensional manner without the assistance of the attached markers or the requirement of a specifically designed environment. 
+
+The recorded depth and skeleton data have been widely and successfully used in depression recognition.
+Therefore, in the current studies of depression recognition, the main work is to learn gait features from the skeleton coordinates recorded by Kinect related with depression and explore feature set for better performance.
+In the meantime, traditional machine learning algorithms are employed to classify such as SVM, KNN , RF, etc. However, deep learning methods have made breakthroughs in the research fields of both Computer Vision (CV). Therefore, many studies are shifting from the traditional hand crafted gait features to the framework based on deep learning for gait depression recognition.
+
+\begin{figure}
+\centering
+\includegraphics[height=3cm,width=8cm]{kinect.jpg}
+\caption{Video based gait acquisition system.
+}
+\label{kinect}
+\end{figure}
+
+%Advances in gait data, image technology, and machine learning technology jointly push the development of gait depression recognition.
+%As proved in previous works, the gait features of depressed patient are different from healthy ones.
+%%some studies have utilized 3D gait skeleton data extracted by Kinect for depression detection
+
+
+
+
+%Moreover, substantial epidemiological studies [29]–[35] show that the gaits of depression patients are different from the normal’s. For instance, the gait pattern in depression appears to a slower gait speed and shorter step length [32], [36].
+%
+%Hence, the correlation of gait features with depression makes it a reliable objective marker for depression assessment.
+
+
+
+
+
+%此外，研究者还通过运动分析研究了抑郁症患者的步态特征。Lemake et al.[29]计算了重性抑郁症患者的时空步态参数，发现患者在步幅、周期时间和下肢支持方面显著减少。此外，大量流行病学研究[29][35]表明，抑郁症患者的步态与正常人不同。例如，抑郁症患者的步态模式表现为较慢的步态速度和较短的步长[32]，[36]。因此，步态特征与抑郁症的相关性使其成为评估抑郁症的可靠的客观指标。
+
+
+
+
+%临床步态分析通常侧重于下肢运动。最常被研究的参数包括节奏、节奏、变异性和不对称性。通过步态运动学分析，[2]发现抑郁症患者的步态速度、步幅、双肢支持和周期持续时间减少。用[3]对抑郁与健康人群步态时的全身运动进行比较。通过使用带有摄像机的动作捕捉系统，作者发现患者的行走速度、手臂摆动、身体垂直运动减少，身体摇摆增加，姿势更下垂。抑郁的人在坐、站和走的时候经常会出现弯腰驼背的姿势。研究表明，与抑郁严重程度[5]、[20]呈正横截面关系。多亏了消费者级深度相机(如Kinect)的开发，人体动态可以在不需要附加标记或特定设计环境的帮助下以三维的方式进行精确跟踪。所记录的深度和骨骼数据已被广泛成功地用于人体动作识别[21]，[22]。在这项研究中，我们通过分析Kinect记录的骨骼坐标来了解学生的自然步态特征。我们量化的步态参数与[3]相似。此外，我们还研究了这些参数对性别的依赖性。
+
+
+%虽然许多研究已经表明抑郁患者和健康个体在步态模式上的存在显著差异，
+%但在临床实践中，步态分析并没有作为抑郁症诊断的手段。具体而言，在临床环境中，对步态的基本评估主要是基于观察法而展开的，但是这种评估在实际的情况中具有很强的主观性。近年来，高性价比的智能设备为基于步态的抑郁症识别提供了新的视角。例如微软之乩乮乥乣乴智能体感设备已被用于实时监测身体运动模式丨乚乨乡乮乧丬 串丰丱串丩，其估算身体姿势和运动
+%的有效性也已得到验证.
+
+%步态数据、图像技术和机器学习技术的进步共同推动了步态抑制识别的发展。正如以往的研究证明的那样，抑郁症患者的步态特征不同于健康人。部分研究利用Kinect提取的三维步态骨骼数据进行抑郁检测。因此，在目前的抑郁识别研究中，主要工作是学习与抑郁相关的步态特征，探索特征集以获得更好的表现。同时采用传统的机器学习算法进行分类，如SVM、KNN、RF等。然而，深度学习方法在计算机视觉(Computer Vision, CV)两个研究领域都取得了突破。因此，一些研究正从传统的手工步态特征转向基于深度学习的步态抑制识别框架。根据输入数据的模态不同，深度学习有两种
+
+
+%深度学习方法在这一领域有两种应用方式。一种是从语音信号中提取手工特征，输入到深度神经网络[37]中，深度框架只作为分类器。二是采用端到端深度架构，将原始音频信号或频谱输入深度网络，自动学习高级特征[38]。深度学习可以解决手工制作的特征所遇到的门槛高、人工成本高、特征利用率低等问题，慢慢成为机器学习领域的领先者。此外，还采用了不同的神经网络体系结构，如卷积神经网络(CNN)[39]、循环神经网络(RNN)[40]、长短时记忆网络(LSTMs)[41]和变压器[42]。
+
+%深度学习研究领域的科研人员普遍认为，数据集越大，深度学习算法训练出
+%模型就越好。在科学研究以及工程实践中，科学家以及工程师都希望训练数据的规模大、质量高，这样训练出的模型可以尽量避免过拟合，有更好的泛化能力，同时具有较高的鲁棒性。但是在实际研究中，由于手工收集和标记数据费时
+%费力，获得庞大的数据集是一项非常艰巨的任务。因此科研人员得到数据总是有
+%限的，比如医学影像等。同时在数据采集过程中也很难覆盖所有场景，比如光照
+%条件、摄像机角度等。因此需要探索如何在有限数据下，尽可能的提高模型性能
+%的方法。而数据增强的出现在一定程度上弥补数据不够，质量不好的问题，在一
+%定程度上解决了上述问题。
+%数据增强，是指对（有限）训练数据通过某种变换操作，生成新数据的过程。
+%在图像领域，常见的增强包括将水平翻转图像，或者将图像平移几个像素。通常
+%深度神经网络对图像翻转、平移等操作是不敏感的，经过多轮的训练，深度网络
+%可以学习图片中的不变性，达到对图片不变性的硬编码。但是这种训练往往伴随
+%着着不确定性，使用数据增强来合并潜在的不变性比直接将不变性硬编码到模型
+%体系结构中更容易
+%[59] 。本文通过数据增强得到原始数据更复杂的表征，从而减
+%小训练集以及测试集之间的差距，让神经网络更好地学习小样本数据集上的数据分布
+%通过数据增强得到原始数据更复杂的表征，从而减小训练集以及测试集之间的差距，让神经网络更好地学习小样本数据集上的数据分布
+
+%目前使用深度学习算法识别抑郁症的研究日益广泛，然而在实际的研究过程
+%中往往缺乏相关实验数据或者收集大量的数据比较困难。在数据有限的情况下，
+%模型性能往往较差，而且容易出现过拟合，因此数据规模日益成为限制自动抑郁
+%症识别进一步研究的瓶颈之一。在图像处理中，数据增强是常用的一种方法，可
+%以在一定程度上解决数据不足带来的过拟合问题。但是在骨架数据中，此类研究
+%尚不多见，因此本文在本章中探索如何在步态数据中使用数据增强方法。
+
+%e a multi-
+%modal gait analysis-based depression detection method
+%that combines skeleton modality and silhouette modal-
+%ity.
+%
+%
+%Thanks to the development of consumer-grade depth cameras (e.g., Kinect), human body dynamics can be traced accurately in a three dimensional manner without the assistance of the attached markers or the requirement of a specifically
+%designed environment. The recorded depth and skeleton data have been widely and successfully used in depression
+%recognition.
+
+
+
+
+
+%There are two application ways for deep learning methods
+%in this field. One is to extract hand‐crafted features from
+%speech signals and then input them into deep neural network
+%[37], where deep framework is only used as classifier. The other
+%is to apply an end‐to‐end deep architecture, which feeds the
+%original audio signal or spectrum to deep network to learn
+%high‐level features automatically [38]. As it could solve the
+%problems encountered in hand‐crafted features, such as high
+%threshold, labour cost and low feature utilization rate, deep
+%learning slowly becomes the leader in the field of machine
+%learning. In addition, different neural network architectures are
+%employed such as Convolutional Neural Networks (CNN) [39],
+%Recurrent Neural Networks (RNN) [40], Long Short‐Term
+%Memory networks (LSTMs) [41], and Transformer [42].
+
+
+%The  early research of the relationship between gait and depression is mainly based on the statistical difference between the gait characteristics (pace, stride, etc.) of healthy and depressed subjects.
+%In recent years,
+
+%There is still a long way to go to achieve the ultimate goal of automatically identifying depression through gait patterns.
+%However, there are some critical observations based on previous studies. With extensive data analysis and machine learning, an automated process may become possible by aggregating previously observed data.
+
+
+
+
+%Speech is a non-invasive signal that is low-cost and easily accessible.
+%The study of speech-based depression recognition began with the examination of clinical aspects of depressed individuals' speech.
+%Clinical observations have revealed that there are phonetic differences in speech between healthy and depressed populations.
+%These differences can be seen in the fact that depressed people typically speak more smoothly and monotonously, whereas healthy people speak more rhythmically, with less pauses and fewer times than depressed people\cite{pampouchidou2017facial,montgomery1979new}.
+%Furthermore, the researchers  designed characteristics based on the variations between the two groups. These characteristics are objective in nature and are able to discriminate between populations that are healthy and those that are depressed.
+%But with the rapid advancement of deep learning techniques in recent years, speech-based depression recognition has transitioned from hand-crafted acoustic features to a deep learning-based framework.
+
+
+\subsubsection{Gait depression recognition based on traditional machine learning}
+%目前，步态抑制识别仍处于起步阶段，大多数方法都集中在传统的机器学习上。该方法利用Kinect采集的三维骨架序列，提取
+
+Currently, Gait depression recognition is still in its infancy, with most approaches focusing on traditional machine learning.
+Researchers extracted the spatial-temporal, time-domain and frequency-domain features from the skeleton, input them into machine learning classifiers (such as SVM) for depression recognition.% and analyzed the contribution of different types of features.
+
+As mentioned in previous section, depressed patients have cognitive and psychomotor differences compared to normal
+people. In traditional research of gait depression recognition,  hand-crafted features are regularly used together with statistical features. The commonly used gait features are as follows:
+(1) Time-Domain Features: Gait time-Domain features include mean, standard deviation, skewness, and kurtosis of the original data.. Specifically, mean is a measure of the central tendency of the random variable characterized by
+that distribution. Standard deviation measures the amount of
+dispersion of a dataset. Kurtosis measures outliers present in the probability
+distribution.
+(2)Frequency-Domain Features.
+(3)spatial-temporal Features: Spatiotemporal gait parameters, including gait velocity, stride length, cadence, stance phase, swing phase etc., provide basic data characterizing a subjects gait.
+
+Previous studies showed that gait-related features can predict depression accurately, and Kinect provided objective and easily accessible data. Wang et al.\cite{wang2021detecting} used skeleton data estimated by Kinect devices to
+predict depression risk in the dataset of 43 scored-depressed and 52 non-depressed individuals. They combined the time domain information, frequency domain information, and spatial geometric features of gait information. The experimental results show that spatial features help a lot in the evaluation of depression.
+
+
+
+%As proved in previous works, the gait features of depressed patient are different from healthy ones.
+%%some studies have utilized 3D gait skeleton data extracted by Kinect for depression detection
+
+
+%To establish a anxiety/depression detection method based on natural gaits using Kinect,
+%we need to build computational models which could recognize anxiety/depression based on
+%Kinect-recorded gaits data, rather than only find some gait features relevant to anxiety or
+%depression. In order to reach this goal, we would try to extract low-level features from configu-
+%rations directly described by values of 3D coordinate, and construct computational models
+%using machine learning methods to automatically recognize the levels of anxiety and depres-
+%sion. These data-driven low-level features could not provide a high-level description of the
+%gaits pattern of anxiety or depression, such as walking speed, arm swing, head movements,
+%etc., but may carry more complete information which would be utilized by the computational
+%models to detect anxiety or depression. This approach has been shown feasible in the field of
+%affective computing
+
+%基于手动提取特征的方法，一般是计算关节之间的数学统计信息，如距离、角度等信息，这些特征作为骨架数据的表征，然
+%后输入到不同的分类器中进行判别。这里用到的分类器一般是传统的方法，如支持向量机（Support Vector Machine, SVM）、K-近邻（K-Nearest Neighbors, KNN）、决策树（Decision Tree, DT）等。这种方法的计算比较简单，并且对于数据量的要求不高.
+
+
+%基于手动提取特征的方法，一般是计算关节之间的数学统计信息，如距离、角度等信息，这些特征作为骨架数据的表征，然
+%后输入到不同的分类器中进行判别。这里用到的分类器一般是传统的方法，如支持向量机（Support Vector Machine, SVM）、K-近邻（K-Nearest Neighbors, KNN）、决策树（Decision Tree, DT）等。这种方法的计算比较简单，并且对于数据量的要求不高.
+
+
+
+%The commonly used gait features are as follows:
+
+
+
+Traditional classification or regression algorithms are employed after feature extraction such as SVM, LR, RF , Decision Tree, GMM, KNN, etc.
+Li \cite{li2021simple} used Kinect V2 device to record participants kinematic skeleton data of the participant’s 25 body joints, the presented spatial features and low-level features is directly extracted from the record original Kinect-3D coordinates. The scored-depressed and non-depressed individuals can be well classified by computational models which were import processed data directly. The proposed experiment demonstrated four strong machine learning tools: Support Vector Machine, Logistic Regression, Random Forest and Gradient Boosting.
+
+
+%SVM
+
+
+
+
+
+%The research of emotion recognition through skeleton has achieved very effective results, so more and more researchers apply skeleton information to depression recognition. They extracted the spatial-temporal, time-domain and frequency-domain features of the skeleton, input them into machine learning classifiers (such as SVM) for depression recognition, and analyzed the contribution of different types of features[36][37].
+
+
+
+
+%在以往的研究中，学者们一直致力于探索新的步态特征，并使用传统的机器学习模型进行分类，准确率不断提高。然而，传统的机器学习技术对原始形式的自然数据处理能力有限，缺乏对复杂函数的表达能力，难以解决更复杂的自然信号处理问题。深度学习允许由多个处理层组成的计算模型学习具有多个抽象层的数据表示，并展示了从少量样本[33]学习数据集基本特征的强大能力。目前，很少有人将深度学习方法应用于步态抑制识别。
+
+\subsubsection{Gait depression recognition based
+on deep learning}
+Due to the successful application in CV and NLP, deep learning is introduced to gait depression recognition.
+Compared with traditional methods, no human intervention is needed after the model and parameters are determined.
+The essence of deep learning is to learn high-level abstract features automatically by building more hidden layer models to improve the accuracy of classification or score prediction.
+
+%虽然骨骼的三维表示具有更小的数据尺寸和丰富的信息，但是像Kinect这样的姿势估计算法在遮挡衣物时却很脆弱。
+%骨架研究的关键是关节坐标的数据质量，而该数据容易受到距离、光线等环境的影响，在复杂场景下的骨架估计不准确。轮廓研究的难点是跨视角识别，不同的视角下识别结果差异较大。多模态融合可以利用每个模态之间的相关性，提高模型的识别准确率和泛化性能。
+There are two ways to employ deep learning in this filed: (1) Build a structure combined skeleton feature set and silhouette features with deep learning method.
+The key to the skeleton study is the data quality of joint coordinates, which is easily affected by distance, light and other environments, and the skeleton estimation is not accurate in complex scenes. The difficulty of contour study is the cross-view recognition, and the recognition results vary greatly under different views. Multimodal fusion can improve the recognition accuracy and generalization performance of the model by exploiting the correlation between each modality. (2) Build an end-to-end deep architecture and then push skeleton sequence into deep architecture to let model learn high-level features by itself.
+
+
+%在步态抑郁识别中，通过骨架特征与轮廓特征结合进行深度特征识别，取得了显著的性能，并且可以提高模型的泛化性能。
+In gait depression recognition , deep speech features through pre-trained deep network have made remarkable
+performance and are robust to noise changes. 
+Shao \cite{shao2021multi}  proposed a multi-modal depression recognition method by combining skeleton data and silhouette data of gait. 
+Firstly, for skeleton data, the skeleton feature set for depression recognition was proposed, which
+included spatiotemporal features and kinematics features. For silhouette data, a CNN model with a new loss function was designed to extract silhouette features. Finally, they merged the silhouette features of the front and side views; then in the decision level, they fused the classification results of skeleton data and silhouette data.
+
+%Gait recognition has thrived on skeleton-based methods
+%because the 3D representations are smaller data sizes with rich information. Notwithstanding, pose estimation algorithms such as Kinect are vulnerable for the occlusion of clothing. On the contrary,
+
+%Traditional acoustic features or deep acoustic
+%features are then put into the deep classifier for training,
+%recognition or prediction. When used as a feature extractor,
+%deep learning can avoid high labour cost and large‐scale loss of
+
+
+Compared with methods of performing feature extraction and classification separately, an end to end deep architecture pushes raw signal into its model to learn and give results as shown in Figure 2. 
+End to end deep architecture have advantages like that it does not require scholars to have a priori
+knowledge, deep networks can learn better features and give better classification result. However, there are a few issues which limit end-to-end deep architectures, such as large-scale data supporting, over-fitting easily and poor interpretability.
+The use of deep learning algorithms to identify depression is now increasingly widely studied, however, there is often a lack of relevant experimental data or difficulty in collecting large amounts of data in the actual research process. With limited data, model performance is often poor and prone to over-fitting, so data size is increasingly becoming one of the bottlenecks limiting further research on automatic depression recognition. In image processing, data enhancement is a commonly used method that can solve the over-fitting problem caused by insufficient data to a certain extent. Data augmentation includes a set of techniques that can augment the size and quality of training datasets, and it has been proved to be effective to improve the performance of the deep learning models[38]. Yang \cite{yang2022data} proposed a skeleton data augmentation method based on Kinect V2 to evaluate the risk of depression. First, Yang proposed five techniques to enhance skeleton data and applied it to depression and emotion datasets. Then, according to mutual information and classification accuracy, the augmentation methods are divided into two categories (non-noise augmentation and noise augmentation). The results showed that this data augmentation method greatly improves the recognition effect of the classifier.
+
+
+%度学习研究领域的科研人员普遍认为，数据集越大，深度学习算法训练出
+%模型就越好。在科学研究以及工程实践中，科学家以及工程师都希望训练数据的规模大、质量高，这样训练出的模型可以尽量避免过拟合，有更好的泛化能力，同时具有较高的鲁棒性。但是在实际研究中，由于手工收集和标记数据费时
+%费力，获得庞大的数据集是一项非常艰巨的任务。因此科研人员得到数据总是有
+%限的，比如医学影像等。同时在数据采集过程中也很难覆盖所有场景，比如光照
+%条件、摄像机角度等。因此需要探索如何在有限数据下，尽可能的提高模型性能
+%的方法。而数据增强的出现在一定程度上弥补数据不够，质量不好的问题，在一
+%定程度上解决了上述问题
+
+%目前使用深度学习算法识别抑郁症的研究日益广泛，然而在实际的研究过程
+%中往往缺乏相关实验数据或者收集大量的数据比较困难。在数据有限的情况下，
+%模型性能往往较差，而且容易出现过拟合，因此数据规模日益成为限制自动抑郁
+%症识别进一步研究的瓶颈之一。在图像处理中，数据增强是常用的一种方法，可
+%以在一定程度上解决数据不足带来的过拟合问题。但是在骨架数据中，此类研究
+%尚不多见，因此本文在本章中探索如何在步态数据中使用数据增强方法。
+
+
+%Due to the lack of sufficient effective sample data for early depression screening based on gait analysis, researchers have used data enhancement to improve the accuracy of identification methods. Data augmentation includes a set of techniques that can augment the size and quality of training datasets, and it has been proved to be effective to improve the performance of the deep learning models[38]. Yang[39] proposed a skeleton data augmentation method based on Kinect V2 to evaluate the risk of depression. First, Yang proposed five techniques to enhance skeleton data and applied it to depression and emotion datasets. Then, according to mutual information and classification accuracy, the augmentation methods are divided into two categories (non-noise augmentation and noise augmentation). The results showed that this data augmentation method greatly improves the recognition effect of the classifier.
+
+
+
+\subsubsection{Performance Comparison}
+%值得注意的是，我们只比较不用的方法在同一数据集上的性能。
+To shed more light on the performance of gait depression recognition methods, we summarize the performance of the methods tested in Tabel~\ref{tab_gait}. 
+To perform a fair comparison, the experimental classification accuracy results (\%) are directly derived from the corresponding original papers.
+It should be noted that we concentrate on contrasting the performance of various approaches on the same data set.
+From the performance comparison in Table~\ref{tab_gait}, several observations can be summarized as:
+
+%对于传统的步态抑郁识别方法，学者们一直致力于探索新的步态特征，并使用传统的机器学习模型进行分类，准确率不断提高。具体来说，第一，使用相同的特征向量，不同的分类器表现出不同的性能。（2）
+(1) For traditional gait depression recognition methods, scholars have been working on exploring novel gait features and using traditional machine learning models for classification with increasing accuracy.
+Specifically, first, time- and frequency-domain features are more efficient in constructing computational models to identify depression than spatiotemporal features~\cite{wang2021detecting}. It is worth noting that the models built of time- domain features and spatiotemporal and time- domain features have the same performances, which suggests that spatiotemporal features had very few contributions to recognize depression. It is also reflected in the fact that the model comprised of time- and frequency-domain features has the same performance as the model consisted of all features. Second, different classifiers display varying performance when given the same feature vector as input.
+% These results are consistent with those reported in previous studies that demonstrated the superiority of signal features such as time- and frequency- domain features over spatiotemporal parameters (42).
+%在以往的研究中，学者们一直致力于探索新的步态特征，并使用传统的机器学习模型进行分类，准确率不断提高。然而，传统的机器学习技术对原始形式的自然数据处理能力有限，缺乏对复杂函数的表达能力，难以解决更复杂的自然信号处理问题。深度学习允许由多个处理层组成的计算模型学习具有多个抽象层的数据表示，并展示了从少量样本学习数据集基本特征的强大能力。目前，很少有人将深度学习方法应用于步态抑制识别。
+
+
+%%传统的方法
+%Traditional methods of gait depression recognition studies focus only on 3D gait skeletal data, and the classification results depend on the data quality of the estimated skeleton locations by Kinect devices.
+
+
+
+%基于骨骼的步态识别方法发展迅速，因为骨骼的三维表示具有更小的数据尺寸和丰富的信息。尽管如此，像Kinect这样的姿势估计算法在遮挡衣物时很脆弱。在[40]中，作者利用坐标计算的位置向量构造了帧级特征向量。实验结果表明，该特征具有较强的鲁棒性和较好的步态识别效果。
+
+(2) For deep learning-based gait depression recognition methods, the multi-modal models are more accurate than the single-modal models~\cite{shao2021multi}. Researchers found that the skeleton can help to locate the spatial position of joints of the human body, and the silhouette can describe the detailed information of the human body shape so that the constructed 3D model is more vivid. 
+Shao obtained better classification performance using skeleton and silhouette fusion, which agrees that the skeleton and silhouette information are related and complementary.
+%Compared with silhouette data, skeleton data can describe dynamic changes during walking more accurately.
+
+
+
+
+
+
+%It agrees that there is complementary information between the skeleton and the silhouette modality and also verifies that the experimental results of this paper are valid.
+
+ 
+(3) %针对同一个数据集，深度学习方法的性能优于传统的机器学习方法，然而，传统的机器学习技术对原始形式的自然数据处理能力有限，缺乏对复杂函数的表达能力，难以解决更复杂的自然信号处理问题。深度学习允许由多个处理层组成的计算模型学习具有多个抽象层的数据表示，并展示了从少量样本[33]学习数据集基本特征的强大能力。不过，目前的基于深度学习的步态抑郁识别相对较少，很少有人将深度学习方法应用于步态抑制识别。
+The gait depression recognition method based on deep learning outperforms traditional machine learning for the same dataset~\cite{9187648,fang2019depression,yang2022data}.
+In previous studies, scholars have been committed to exploring new gait features and using traditional machine learning models for classification, and the accuracy has been continuously improved. However, traditional machine learning technologies were limited in their ability to process natural data in their raw form, and lack the ability to express complex functions, making it difficult to solve more complex natural signal processing problems. Deep learning allows computational models that are composed of multiple processing layers to learn representations of data with multiple levels of abstraction, and demonstrate a powerful ability to learn the
+essential characteristics of a data set from a small number of samples.
+
+%Although the hand-crafted method increases the processing procedure, it is conducive to enhancing interpretability.
+
+
+\begin{table*}[!htbp]
+\caption{ Overview of machine learning based methods for Depression
+Assessment from gait.}
+\label{tab_gait}
+\renewcommand\arraystretch{1.5}
+%\resizebox{\linewidth}{!}{
+\resizebox{0.9999\linewidth}{!}{%
+\begin{threeparttable}
+\begin{tabular}{c|cccccc}
+\toprule
+\textbf{Methods}& \textbf{Paper}& \textbf{Dataset}& \textbf{Feature}& \textbf{Classification}& \textbf{Metrics}           & \multicolumn{1}{c}{\textbf{Value}} \\ \midrule
+& & & & SVM & & 53.85 \\
+& & & & RF & & 61.54\\
+& & & & LR & & 73.08 \\
+& \multirow{-4}{*}{Li\cite{li2021simple}}& \multirow{-4}{*}{85SD+85C}& \multirow{-4}{*}{skeleton sequential data} & GB & \multirow{-4}{*}{Accuracy} & 76.92 \\ \cline{2-7}
+& & & Velocity & & & 88.84+7.13 \\
+& & & Angle Velocity & & & 83.93+7.33\\
+& & & TF(Pseudo-Velocity Model) & & & 91.96+5.33 \\
+& & & SG & & & 70.98+11.85  \\
+Gait depression recognition & \multirow{-5}{*}{Wang\cite{9187648}} & \multirow{-5}{*}{43SD+52C}   & TF+SG                                      & \multirow{-5}{*}{FC+Softmax} & \multirow{-5}{*}{Accuracy} & 93.75+2.98 \\ \cline{2-7}
+based on traditional & & & & KNN & Accuracy & 80.34 \\
+machine learning& & & & SVM & & 91.21  \\
+& \multirow{-3}{*}{Lu\cite{lu2022postgraduate}}& \multirow{-3}{*}{43SD+52C} &\multirow{-3}{*}{the joint energy feature} & RF & & 85.71\\ \cline{2-7}
+& Yuan\cite{yuan2018depression} & 54SD+47C& FF & SVM & Accuracy & 91.09  \\ \cline{2-7}
+& & & walking speed & SVM & & 90.53\\
+& & & arm swing,stride length,& RF & & 91.58 \\
+& & & vertical head movement, & KNN & & 87.37 \\
+& & & body sway,step width, & LR & & 88.42 \\  
+& \multirow{-5}{*}{Fang\cite{fang2019depression}}& \multirow{-5}{*}{43SD+52C} & joint rom,stance duration & LDA                                       & \multirow{-5}{*}{Accuracy} & 88.42 \\ \cline{2-7}
+& & & SF & & & 0.58\\
+& & & TF & & & 0.83 \\
+& & & FF & & & 0.87 \\
+& & & SF+TF & & & 0.83\\
+& & & SF+FF & & & 0.83   \\
+& & & TF+FF& & & 0.93  \\
+& \multirow{-7}{*}{Wang\cite{wang2021detecting}}&\multirow{-7}{*}{126SD+121C}&ALL&\multirow{-7}{*}{SVM}&\multirow{-7}{*}{AUC} & 0.93 \\ \cline{2-7}
+& Zhao\cite{zhao2019see} & 179 & FFT & SVR & Accuracy & 64  \\ \midrule
+Gait depression recognition &  & & Skeleton features set,GEI  &  &  & 85.45\\
+recognition based on & &  & GEI & &  & 66.67   \\
+deep learning& \multirow{-3}{*}{Shao\cite{shao2021multi}}& \multirow{-3}{*}{86SD+114C}  & skeleton feature set                       & \multirow{-3}{*}{LSTM+CNN} & \multirow{-3}{*}{Accuracy} & 80.28 \\ \cline{2-7}
+& Yang\cite{yang2022data} & 43SD+52C & skeleton data & LSTM & Accuracy  & 92.15  \\ \bottomrule
+\end{tabular}
+      \begin{tablenotes} %添加此处
+		\item Score-depressed: SD; Gradient boosting: GB; Time-Domain Features: TF; Frequency-Domain Features: FF; Spatial geometric feature: SG; spatial-temporal Features: SF
+     \end{tablenotes} %添加此处
+\end{threeparttable}}
+\end{table*}
+
+
+
+
+
+
+
+
+\ifx\allfiles\undefined
+\input{tnnls_suffix}
+\fi
